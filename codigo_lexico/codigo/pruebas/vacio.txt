@@ -1,0 +1,3 @@
+// vacio.txt: programa sin instrucciones, solo comentarios y lineas en blanco
+
+// Debe salir solo el token EOF, la tabla de simbolos vacia y 0 errores.

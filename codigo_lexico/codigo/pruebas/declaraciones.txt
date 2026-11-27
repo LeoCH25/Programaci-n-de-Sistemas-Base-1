@@ -1,0 +1,14 @@
+// declaraciones.txt: tabla de simbolos - tipos, redeclaraciones y declaraciones incompletas
+DISPOSITIVO clima
+SENSOR temperatura
+PARAMETRO limite = 30
+PARAMETRO umbral = 21.5
+PARAMETRO aviso = "Modo noche"
+PARAMETRO activo = VERDADERO
+DISPOSITIVO clima
+PARAMETRO temperatura = 25
+PARAMETRO frio = -5
+PARAMETRO calor 28
+PARAMETRO humedad = temperatura
+SENSOR
+DISPOSITIVO Clima

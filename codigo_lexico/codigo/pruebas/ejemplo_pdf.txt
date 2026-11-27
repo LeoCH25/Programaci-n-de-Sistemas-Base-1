@@ -1,0 +1,21 @@
+DISPOSITIVO clima
+DISPOSITIVO ventilador
+DISPOSITIVO luces
+SENSOR temperatura
+SENSOR humedad
+PARAMETRO frio = 18
+PARAMETRO calor = 28
+PARAMETRO humedad_max = 60.5
+SI temperatura >= calor Y humedad > humedad_max {
+ ENCENDER clima
+ ENCENDER ventilador
+} SINO SI temperatura <= frio {
+ APAGAR clima
+ APAGAR ventilador
+}
+MIENTRAS temperatura > frio {
+ ENCENDER luces
+}
+ESTADO Noche {
+ CUANDO temperatura < frio -> Frio
+}

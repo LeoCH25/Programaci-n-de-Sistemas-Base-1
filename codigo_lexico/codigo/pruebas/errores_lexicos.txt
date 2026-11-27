@@ -1,0 +1,11 @@
+// errores_lexicos.txt: un programa con los 5 errores lexicos (E1-E5)
+DISPOSITIVO calefacción
+SENSOR temperatura
+PARAMETRO 2limite = 30
+PARAMETRO umbral = 18.
+SI temperatura >= umbral Y temperatura ! 40 {
+	ENCENDER calefaccion
+}
+ESTADO Noche {
+	CUANDO temperatura < 10 -> "Frio
+}

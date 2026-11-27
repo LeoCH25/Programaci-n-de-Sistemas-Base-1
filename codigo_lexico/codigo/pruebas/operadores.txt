@@ -1,0 +1,34 @@
+// operadores.txt: programa valido que usa los 36 tipos de token
+// (15 palabras reservadas, ID, 3 literales, 12 operadores, 4 delimitadores y EOF)
+DISPOSITIVO calefactor
+DISPOSITIVO humidificador
+DISPOSITIVO alarma
+SENSOR temperatura
+SENSOR humedad
+SENSOR presencia
+PARAMETRO minimo = 18
+PARAMETRO margen = 2.5
+PARAMETRO aviso = "Modo ahorro"
+PARAMETRO automatico = VERDADERO
+PARAMETRO manual = FALSO
+
+// aritmeticos + - * / con parentesis anidados
+SI (temperatura + margen) * 2 / 3 < minimo - 1 Y NO (presencia == 0) {
+    ENCENDER calefactor
+} SINO SI humedad <= 40 O humedad >= 85.0 {
+    ENCENDER humidificador
+} SINO {
+    APAGAR calefactor
+    APAGAR humidificador
+}
+
+MIENTRAS presencia != 0 Y temperatura > minimo {
+    APAGAR alarma
+}
+
+ESTADO Dia {
+    CUANDO presencia == 0 -> Noche
+}
+ESTADO Noche {
+    CUANDO presencia != 0 O temperatura < minimo -> Dia
+}
