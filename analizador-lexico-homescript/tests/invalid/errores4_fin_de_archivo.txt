@@ -1,0 +1,11 @@
+// errores4_fin_de_archivo.txt: errores al final del archivo (la ultima linea NO tiene salto)
+DISPOSITIVO bomba
+SENSOR nivel
+PARAMETRO lleno = 95.
+SI nivel >= lleno {
+    APAGAR bomba
+}
+ESTADO Llenando {
+    CUANDO nivel >= lleno -> Lleno
+}
+PARAMETRO mensaje = "Tanque lleno

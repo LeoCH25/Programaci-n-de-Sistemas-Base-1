@@ -1,0 +1,47 @@
+==============================================================================
+ ANALIZADOR LÉXICO HOMESCRIPT · tests/invalid/errores1_lexicos.txt (13 líneas, UTF-8)
+==============================================================================
+Lista de tokens:
+1: (PALABRA_RESERVADA, "DISPOSITIVO")
+2: (PALABRA_RESERVADA, "SENSOR")
+3: (IDENTIFICADOR, "temperatura")
+4: (PALABRA_RESERVADA, "PARAMETRO")
+5: (OPERADOR, "=")
+6: (NUMERO_ENTERO, "30")
+7: (PALABRA_RESERVADA, "PARAMETRO")
+8: (IDENTIFICADOR, "umbral")
+9: (OPERADOR, "=")
+10: (PALABRA_RESERVADA, "PARAMETRO")
+11: (IDENTIFICADOR, "costo")
+12: (OPERADOR, "=")
+13: (NUMERO_ENTERO, "30")
+14: (PALABRA_RESERVADA, "SI")
+15: (IDENTIFICADOR, "temperatura")
+16: (OPERADOR, ">=")
+17: (IDENTIFICADOR, "umbral")
+18: (PALABRA_RESERVADA, "Y")
+19: (IDENTIFICADOR, "temperatura")
+20: (NUMERO_ENTERO, "40")
+21: (DELIMITADOR, "{")
+22: (PALABRA_RESERVADA, "ENCENDER")
+23: (IDENTIFICADOR, "calefaccion")
+24: (DELIMITADOR, "}")
+25: (PALABRA_RESERVADA, "ESTADO")
+26: (IDENTIFICADOR, "Noche")
+27: (DELIMITADOR, "{")
+28: (PALABRA_RESERVADA, "CUANDO")
+29: (IDENTIFICADOR, "temperatura")
+30: (OPERADOR, "<")
+31: (NUMERO_ENTERO, "10")
+32: (OPERADOR, "->")
+33: (DELIMITADOR, "}")
+
+Lista de errores:
+Línea 3, Columna 13: Identificador inválido 'calefacción': contiene el carácter no permitido 'ó'.
+Línea 5, Columna 11: Identificador inválido '2limite': no puede empezar con un dígito.
+Línea 6, Columna 20: Número mal formado '18.': falta al menos un dígito después del punto.
+Línea 7, Columna 19: Símbolo desconocido '$' detectado.
+Línea 8, Columna 40: Símbolo desconocido '!' detectado: el operador de diferencia se escribe '!='.
+Línea 12, Columna 29: Cadena sin cerrar '"Frio': falta la comilla de cierre en la misma línea.
+
+Resumen: 33 tokens reconocidos, 6 errores léxicos.

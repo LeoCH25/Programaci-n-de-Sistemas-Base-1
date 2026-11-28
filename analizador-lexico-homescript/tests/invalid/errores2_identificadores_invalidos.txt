@@ -1,0 +1,13 @@
+// errores2_identificadores_invalidos.txt: identificadores invalidos y simbolos desconocidos
+DISPOSITIVO variable1                // valido
+SENSOR my_function                   // valido
+DISPOSITIVO 123abc                   // E2: empieza con digito
+SENSOR @var                          // E6: '@' no esta permitido
+SENSOR año                           // E6: 'ñ' no esta permitido
+PARAMETRO límite = 25                // E6: 'í' no esta permitido
+PARAMETRO $precio = 10               // E6: '$' no esta permitido
+PARAMETRO total = 10 $ 2             // E1: '$' suelto
+SI variable1 # 1 {                   // E1: '#' suelto
+    ENCENDER variable1
+}
+PARAMETRO 9vidas = 9                 // E2: empieza con digito

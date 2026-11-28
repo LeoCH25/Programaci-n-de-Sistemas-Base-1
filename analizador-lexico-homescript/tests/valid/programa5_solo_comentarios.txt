@@ -1,0 +1,3 @@
+// programa5_solo_comentarios.txt: programa sin instrucciones, solo comentarios y lineas en blanco
+
+// La lista de tokens debe salir vacia y sin errores lexicos.

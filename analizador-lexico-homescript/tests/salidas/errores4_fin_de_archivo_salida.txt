@@ -1,0 +1,38 @@
+==============================================================================
+ ANALIZADOR LÉXICO HOMESCRIPT · tests/invalid/errores4_fin_de_archivo.txt (11 líneas, UTF-8)
+==============================================================================
+Lista de tokens:
+1: (PALABRA_RESERVADA, "DISPOSITIVO")
+2: (IDENTIFICADOR, "bomba")
+3: (PALABRA_RESERVADA, "SENSOR")
+4: (IDENTIFICADOR, "nivel")
+5: (PALABRA_RESERVADA, "PARAMETRO")
+6: (IDENTIFICADOR, "lleno")
+7: (OPERADOR, "=")
+8: (PALABRA_RESERVADA, "SI")
+9: (IDENTIFICADOR, "nivel")
+10: (OPERADOR, ">=")
+11: (IDENTIFICADOR, "lleno")
+12: (DELIMITADOR, "{")
+13: (PALABRA_RESERVADA, "APAGAR")
+14: (IDENTIFICADOR, "bomba")
+15: (DELIMITADOR, "}")
+16: (PALABRA_RESERVADA, "ESTADO")
+17: (IDENTIFICADOR, "Llenando")
+18: (DELIMITADOR, "{")
+19: (PALABRA_RESERVADA, "CUANDO")
+20: (IDENTIFICADOR, "nivel")
+21: (OPERADOR, ">=")
+22: (IDENTIFICADOR, "lleno")
+23: (OPERADOR, "->")
+24: (IDENTIFICADOR, "Lleno")
+25: (DELIMITADOR, "}")
+26: (PALABRA_RESERVADA, "PARAMETRO")
+27: (IDENTIFICADOR, "mensaje")
+28: (OPERADOR, "=")
+
+Lista de errores:
+Línea 4, Columna 19: Número mal formado '95.': falta al menos un dígito después del punto.
+Línea 11, Columna 21: Cadena sin cerrar '"Tanque lleno': falta la comilla de cierre en la misma línea.
+
+Resumen: 28 tokens reconocidos, 2 errores léxicos.

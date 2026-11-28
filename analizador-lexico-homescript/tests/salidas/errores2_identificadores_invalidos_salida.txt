@@ -1,0 +1,44 @@
+==============================================================================
+ ANALIZADOR LÉXICO HOMESCRIPT · tests/invalid/errores2_identificadores_invalidos.txt (13 líneas, UTF-8)
+==============================================================================
+Lista de tokens:
+1: (PALABRA_RESERVADA, "DISPOSITIVO")
+2: (IDENTIFICADOR, "variable1")
+3: (PALABRA_RESERVADA, "SENSOR")
+4: (IDENTIFICADOR, "my_function")
+5: (PALABRA_RESERVADA, "DISPOSITIVO")
+6: (PALABRA_RESERVADA, "SENSOR")
+7: (PALABRA_RESERVADA, "SENSOR")
+8: (PALABRA_RESERVADA, "PARAMETRO")
+9: (OPERADOR, "=")
+10: (NUMERO_ENTERO, "25")
+11: (PALABRA_RESERVADA, "PARAMETRO")
+12: (OPERADOR, "=")
+13: (NUMERO_ENTERO, "10")
+14: (PALABRA_RESERVADA, "PARAMETRO")
+15: (IDENTIFICADOR, "total")
+16: (OPERADOR, "=")
+17: (NUMERO_ENTERO, "10")
+18: (NUMERO_ENTERO, "2")
+19: (PALABRA_RESERVADA, "SI")
+20: (IDENTIFICADOR, "variable1")
+21: (NUMERO_ENTERO, "1")
+22: (DELIMITADOR, "{")
+23: (PALABRA_RESERVADA, "ENCENDER")
+24: (IDENTIFICADOR, "variable1")
+25: (DELIMITADOR, "}")
+26: (PALABRA_RESERVADA, "PARAMETRO")
+27: (OPERADOR, "=")
+28: (NUMERO_ENTERO, "9")
+
+Lista de errores:
+Línea 4, Columna 13: Identificador inválido '123abc': no puede empezar con un dígito.
+Línea 5, Columna 8: Identificador inválido '@var': contiene el carácter no permitido '@'.
+Línea 6, Columna 8: Identificador inválido 'año': contiene el carácter no permitido 'ñ'.
+Línea 7, Columna 11: Identificador inválido 'límite': contiene el carácter no permitido 'í'.
+Línea 8, Columna 11: Identificador inválido '$precio': contiene el carácter no permitido '$'.
+Línea 9, Columna 22: Símbolo desconocido '$' detectado.
+Línea 10, Columna 14: Símbolo desconocido '#' detectado (los comentarios se escriben con //).
+Línea 13, Columna 11: Identificador inválido '9vidas': no puede empezar con un dígito.
+
+Resumen: 28 tokens reconocidos, 8 errores léxicos.

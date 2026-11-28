@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Ejecutable que se compila desde grammar/lex.yy.c (depende del sistema operativo)
+grammar/homescript_flex
+grammar/homescript_flex.exe
+*.o
+
+# Editores
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+~$*

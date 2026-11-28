@@ -1,0 +1,106 @@
+// AFD del analizador léxico de HomeScript (15 estados, q0-q14).
+// Generar la imagen:  dot -Tpng afd_homescript.dot -o ../docs/diagrama_automata.png
+// '*' = retroceder un carácter (el último leído no es parte del token).
+digraph AFD {
+  rankdir=LR; nodesep=0.22; ranksep=0.5; dpi=200;
+  node [fontname="Helvetica" fontsize=11]; edge [fontname="Helvetica" fontsize=9.5];
+
+  inicio [shape=point];
+  node [shape=circle style=filled fillcolor="#EEF3FB"];
+  q0 [label="q0\ninicio"];
+  inicio -> q0;
+  q1 [label="q1\nidentif."];
+  q2 [label="q2\nentero"];
+  q3 [label="q3\nentero ."];
+  q4 [label="q4\nflotante"];
+  q5 [label="q5\ncadena"];
+  q6 [label="q6\nleyó /"];
+  q7 [label="q7\ncomentario"];
+  q8 [label="q8\nleyó -"];
+  q9 [label="q9\nleyó >"];
+  q10 [label="q10\nleyó <"];
+  q11 [label="q11\nleyó ="];
+  q12 [label="q12\nleyó !"];
+  q13 [label="q13\nidentif.\ninválido" fillcolor="#FFF4E5"];
+  q14 [label="q14\nsímbolo\ndesconocido" fillcolor="#FFF4E5"];
+
+  node [shape=doublecircle fontsize=9 style=filled fillcolor="#E6F4EA"];
+  A_ID [label="ID o\nreservada *"];
+  A_ENTERO [label="ENTERO *"];
+  A_FLOTANTE [label="FLOTANTE *"];
+  A_CADENA [label="CADENA"];
+  A_DIVISION [label="DIVISION *"];
+  A_FLECHA [label="FLECHA"];
+  A_RESTA [label="RESTA *"];
+  A_MAYOR_IGUAL [label="MAYOR_\nIGUAL"];
+  A_MAYOR [label="MAYOR *"];
+  A_MENOR_IGUAL [label="MENOR_\nIGUAL"];
+  A_MENOR [label="MENOR *"];
+  A_IGUAL [label="IGUAL"];
+  A_ASIGNACION [label="ASIGNA-\nCION *"];
+  A_DIFERENTE [label="DIFERENTE"];
+  A_SIMBOLO [label="+ * { }\n( )"];
+  A_EOF [label="EOF"];
+
+  node [shape=octagon fontsize=10 style=filled fillcolor="#FCE8E6"];
+  X_E1 [label="E1 *\nsímbolo\ndesconocido"];
+  X_E2 [label="E2\nempieza\ncon dígito"];
+  X_E3 [label="E3 *\nflotante\nmal formado"];
+  X_E4 [label="E4 *\ncadena\nsin cerrar"];
+  X_E5 [label="E5 *\n'!' sin '='"];
+  X_E6 [label="E6 *\nidentif.\ninválido"];
+
+  q0 -> q0 [label="espacio, \\t, \\r, \\n"];
+  q0 -> q1 [label="letra, _"];
+  q0 -> q2 [label="dígito"];
+  q0 -> q5 [label="\""];
+  q0 -> q6 [label="/"];
+  q0 -> q8 [label="-"];
+  q0 -> q9 [label=">"];
+  q0 -> q10 [label="<"];
+  q0 -> q11 [label="="];
+  q0 -> q12 [label="!"];
+  q0 -> A_SIMBOLO [label="+ * { } ( )"];
+  q0 -> A_EOF [label="EOF"];
+  q0 -> q13 [label="no ASCII (ñ, á, ...)"];
+  q0 -> q14 [label="otro ($ @ # ; ...)"];
+
+  q1 -> q1 [label="letra, dígito, _"];
+  q1 -> q13 [label="no ASCII"];
+  q1 -> A_ID [label="otro"];
+
+  q2 -> q2 [label="dígito"];
+  q2 -> q3 [label="."];
+  q2 -> X_E2 [label="letra, _, no ASCII"];
+  q2 -> A_ENTERO [label="otro"];
+  q3 -> q4 [label="dígito"];
+  q3 -> X_E3 [label="otro"];
+  q4 -> q4 [label="dígito"];
+  q4 -> X_E2 [label="letra, _, no ASCII"];
+  q4 -> A_FLOTANTE [label="otro"];
+
+  q5 -> q5 [label="otro"];
+  q5 -> A_CADENA [label="\""];
+  q5 -> X_E4 [label="\\n, EOF"];
+
+  q6 -> q7 [label="/"];
+  q6 -> A_DIVISION [label="otro"];
+  q7 -> q7 [label="otro"];
+  q7 -> q0 [label="\\n *, EOF *"];
+
+  q8 -> A_FLECHA [label=">"];
+  q8 -> A_RESTA [label="otro"];
+  q9 -> A_MAYOR_IGUAL [label="="];
+  q9 -> A_MAYOR [label="otro"];
+  q10 -> A_MENOR_IGUAL [label="="];
+  q10 -> A_MENOR [label="otro"];
+  q11 -> A_IGUAL [label="="];
+  q11 -> A_ASIGNACION [label="otro"];
+  q12 -> A_DIFERENTE [label="="];
+  q12 -> X_E5 [label="otro"];
+
+  q13 -> q13 [label="letra, dígito,\n_, no ASCII"];
+  q13 -> X_E6 [label="otro"];
+  q14 -> q13 [label="letra, _, no ASCII\n(excepto si fue ')"];
+  q14 -> X_E1 [label="otro"];
+}

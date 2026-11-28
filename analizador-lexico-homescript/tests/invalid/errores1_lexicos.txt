@@ -1,0 +1,13 @@
+// errores1_lexicos.txt: un error de cada tipo (E1 a E6)
+// La ultima cadena "Frio no se cierra (E4).
+DISPOSITIVO calefacción                        // E6: 'ó' no esta permitido
+SENSOR temperatura
+PARAMETRO 2limite = 30                         // E2: empieza con digito
+PARAMETRO umbral = 18.                         // E3: faltan decimales
+PARAMETRO costo = $ 30                         // E1: simbolo desconocido
+SI temperatura >= umbral Y temperatura ! 40 {  // E5: '!' sin '='
+	ENCENDER calefaccion
+}
+ESTADO Noche {
+	CUANDO temperatura < 10 -> "Frio
+}

@@ -1,0 +1,68 @@
+==============================================================================
+ ANALIZADOR LÉXICO HOMESCRIPT · tests/invalid/errores3_habitos_de_c.txt (15 líneas, UTF-8)
+==============================================================================
+Lista de tokens:
+1: (IDENTIFICADOR, "PIN")
+2: (NUMERO_ENTERO, "13")
+3: (PALABRA_RESERVADA, "DISPOSITIVO")
+4: (IDENTIFICADOR, "foco")
+5: (PALABRA_RESERVADA, "SENSOR")
+6: (IDENTIFICADOR, "luz")
+7: (PALABRA_RESERVADA, "PARAMETRO")
+8: (IDENTIFICADOR, "limite")
+9: (OPERADOR, "=")
+10: (NUMERO_ENTERO, "500")
+11: (PALABRA_RESERVADA, "PARAMETRO")
+12: (IDENTIFICADOR, "factor")
+13: (OPERADOR, "=")
+14: (NUMERO_ENTERO, "5")
+15: (PALABRA_RESERVADA, "PARAMETRO")
+16: (IDENTIFICADOR, "decimal")
+17: (OPERADOR, "=")
+18: (NUMERO_ENTERO, "1")
+19: (NUMERO_ENTERO, "5")
+20: (PALABRA_RESERVADA, "PARAMETRO")
+21: (IDENTIFICADOR, "nombre")
+22: (OPERADOR, "=")
+23: (IDENTIFICADOR, "sala")
+24: (PALABRA_RESERVADA, "PARAMETRO")
+25: (IDENTIFICADOR, "mascara")
+26: (OPERADOR, "=")
+27: (PALABRA_RESERVADA, "SI")
+28: (IDENTIFICADOR, "luz")
+29: (OPERADOR, "<")
+30: (IDENTIFICADOR, "limite")
+31: (IDENTIFICADOR, "encendido")
+32: (DELIMITADOR, "{")
+33: (PALABRA_RESERVADA, "ENCENDER")
+34: (IDENTIFICADOR, "foco")
+35: (DELIMITADOR, "}")
+36: (PALABRA_RESERVADA, "SI")
+37: (IDENTIFICADOR, "luz")
+38: (OPERADOR, ">=")
+39: (IDENTIFICADOR, "limite")
+40: (IDENTIFICADOR, "luz")
+41: (OPERADOR, "==")
+42: (NUMERO_ENTERO, "0")
+43: (DELIMITADOR, "{")
+44: (PALABRA_RESERVADA, "APAGAR")
+45: (IDENTIFICADOR, "foco")
+46: (DELIMITADOR, "}")
+
+Lista de errores:
+Línea 2, Columna 1: Identificador inválido '#define': contiene el carácter no permitido '#'.
+Línea 3, Columna 17: Símbolo desconocido ';' detectado (HomeScript no usa ';' para terminar instrucciones).
+Línea 5, Columna 23: Símbolo desconocido ';' detectado (HomeScript no usa ';' para terminar instrucciones).
+Línea 6, Columna 20: Símbolo desconocido '.' detectado (un número decimal necesita parte entera, p. ej. 0.5).
+Línea 7, Columna 22: Símbolo desconocido ',' detectado (los decimales se escriben con punto, p. ej. 1.5).
+Línea 8, Columna 20: Símbolo desconocido ''' detectado (las cadenas van entre comillas dobles).
+Línea 8, Columna 25: Símbolo desconocido ''' detectado (las cadenas van entre comillas dobles).
+Línea 9, Columna 21: Identificador inválido '0x1F': no puede empezar con un dígito.
+Línea 10, Columna 17: Símbolo desconocido '&' detectado (el Y lógico se escribe Y).
+Línea 10, Columna 18: Símbolo desconocido '&' detectado (el Y lógico se escribe Y).
+Línea 10, Columna 20: Símbolo desconocido '!' detectado: el operador de diferencia se escribe '!='.
+Línea 11, Columna 18: Símbolo desconocido ';' detectado (HomeScript no usa ';' para terminar instrucciones).
+Línea 13, Columna 18: Símbolo desconocido '|' detectado (el O lógico se escribe O).
+Línea 13, Columna 19: Símbolo desconocido '|' detectado (el O lógico se escribe O).
+
+Resumen: 46 tokens reconocidos, 14 errores léxicos.

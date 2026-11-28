@@ -1,0 +1,25 @@
+digraph A {
+  rankdir=TB; dpi=200; nodesep=0.45; ranksep=0.32;
+  node [fontname="Helvetica" fontsize=12 shape=box style="rounded,filled" fillcolor="#F2F2F2" color="#555555" width=2.3];
+  edge [fontname="Helvetica" fontsize=10.5 color="#444444"];
+  archivo [label="programa.txt (HomeScript)" shape=note fillcolor="#FFFFFF"];
+  main1 [label="main.py · leer_fuente()\ndetecta UTF-8 / UTF-16 / ANSI"];
+  buffer [label="buffer.py · buffer doble\ncon centinelas"];
+  lexer [label="lexer.py · Lexer.scan_tokens()\nAFD de 15 estados (q0–q14)" fillcolor="#E3ECFA" penwidth=1.6];
+  tokens [label="tokens.py\nToken, TokenType,\nPALABRAS_RESERVADAS"];
+  errores [label="errors.py\nErrorHandler (E1–E6)" fillcolor="#FBE6E4"];
+  tabla [label="tabla_simbolos.py\n(extra, opción --tabla)" style="rounded,dashed,filled" fillcolor="#FFFFFF"];
+  main2 [label="main.py · salida\nLista de tokens · Lista de errores (ErrorReporter)"];
+  salida [label="consola  y  tests/salidas/*_salida.txt" shape=note fillcolor="#FFFFFF"];
+  archivo -> main1 [label=" bytes"];
+  main1 -> buffer [label=" texto"];
+  buffer -> lexer [label=" un carácter a la vez\n (y retroceso)"];
+  tokens -> lexer [label=" tipos y\n reservadas" style=dashed];
+  lexer -> errores [label=" report_…()"];
+  lexer -> main2 [label=" lista de tokens"];
+  errores -> main2 [label=" errores con\n línea y columna"];
+  lexer -> tabla [style=dashed label=" tokens"];
+  main2 -> salida;
+  {rank=same; tokens; lexer}
+  {rank=same; errores; tabla}
+}

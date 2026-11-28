@@ -1,0 +1,38 @@
+// programa3_invernadero.txt: riego y ventilacion automatica de un invernadero
+// Dispositivos (salidas) y sensores (entradas)
+DISPOSITIVO bomba_riego
+DISPOSITIVO ventilador
+DISPOSITIVO lampara_uv
+SENSOR humedad_suelo
+SENSOR temperatura
+SENSOR luz
+
+// Parametros de configuracion
+PARAMETRO humedad_minima = 35
+PARAMETRO temp_maxima = 30.5
+PARAMETRO luz_minima = 200
+PARAMETRO modo = "automatico"
+PARAMETRO riego_nocturno = FALSO
+
+// Reglas de comportamiento
+SI humedad_suelo < humedad_minima Y NO riego_nocturno {
+    ENCENDER bomba_riego
+} SINO {
+    APAGAR bomba_riego
+}
+
+SI temperatura > temp_maxima O (temperatura * 1.8 + 32) >= 90 {
+    ENCENDER ventilador
+}
+
+MIENTRAS luz < luz_minima / 2 {
+    ENCENDER lampara_uv
+}
+
+// Maquina de estados: Dia <-> Noche
+ESTADO Dia {
+    CUANDO luz < luz_minima -> Noche
+}
+ESTADO Noche {
+    CUANDO luz >= luz_minima -> Dia
+}

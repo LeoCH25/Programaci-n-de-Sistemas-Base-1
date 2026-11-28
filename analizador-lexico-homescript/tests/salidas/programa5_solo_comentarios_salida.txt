@@ -1,0 +1,9 @@
+==============================================================================
+ ANALIZADOR LÉXICO HOMESCRIPT · tests/valid/programa5_solo_comentarios.txt (3 líneas, UTF-8)
+==============================================================================
+Lista de tokens:
+(el programa no tiene tokens: solo comentarios o espacios)
+
+No se encontraron errores léxicos.
+
+Resumen: 0 tokens reconocidos, 0 errores léxicos.
